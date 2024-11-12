@@ -12,18 +12,18 @@ from selenium.common.exceptions import TimeoutException
 
 from webdriver_manager.chrome import ChromeDriverManager  # Подключаем менеджер драйвера
 
-# Запуск Chrome-драйвера с использованием Service и ChromeDriverManager
+
 service = Service(ChromeDriverManager().install())
 
 driver = webdriver.Chrome(service=service)
 
-# Открыть сайт
-driver.get("http://uitestingplayground.com/ajax")
 
-# Нажать на синюю кнопку
+driver.get("http://uitestingplayground.com/ajax")          # Открыть сайт
+
+
 button = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#ajaxButton')))
 
-button.click()
+button.click()                # Нажать на синюю кнопку
 
 try:
 
@@ -46,4 +46,4 @@ except TimeoutException:
     print("Timed out.","время ожидания истекло.")
 
 
-driver.quit()                      # Закрыть браузер
+driver.quit()                      # Закрываем браузер
