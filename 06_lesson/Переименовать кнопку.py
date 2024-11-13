@@ -34,7 +34,7 @@ search_button.click()                # Нажимаем  кнопку
 
 try:
    # время ожидания до 20 секунд 
-    WebDriverWait(driver, 20).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '#updatingButton'), ("SkyPro")))
+    WebDriverWait(driver, 20).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '#updatingButton'), "SkyPro"))
     
     element_text = driver.find_element(By.CSS_SELECTOR, '#updatingButton')
    
