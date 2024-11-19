@@ -36,7 +36,7 @@ def test_form_submission(driver):
 
     # Ждем появления поля zip-кода
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "input[name='zip-code']")))
-    driver.find_element(By.CSS_SELECTOR, "input[name='zip-code']").send_keys('')  # Оставляем пустым
+    driver.find_element(By.CSS_SELECTOR, "input[name='zip-code']").send_keys('')  # Остается пустым
 
     driver.find_element(By.CSS_SELECTOR, "input[name='city']").send_keys('Москва')
     driver.find_element(By.CSS_SELECTOR, "input[name='country']").send_keys('Россия')
@@ -44,12 +44,12 @@ def test_form_submission(driver):
     driver.find_element(By.CSS_SELECTOR, "input[name='company']").send_keys('SkyPro')
 
     # Нажать на кнопку "Submit"
-    submit_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
+    submit_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
+    
     submit_button.click()
 
-    # Ожидание появления всех предупреждений
-    WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".alert")))
+    # смотрим  появление предупреждений
+    WebDriverWait(driver, 15).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".alert")))
 
     # Получаем все элементы предупреждений
     alerts = driver.find_elements(By.CSS_SELECTOR, ".alert")

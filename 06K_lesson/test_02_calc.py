@@ -20,10 +20,10 @@ def test_calculator(driver):
     # Открыть страницу
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
-    # Найти и очистить поле ввода, затем установить значение задержки в 45 секунд
+    # Найти и очистить поле ввода, затем установить значение задержки в 20 секунд
     delay_input = driver.find_element(By.CSS_SELECTOR, "input[value='5']")
     delay_input.clear()
-    delay_input.send_keys("45")
+    delay_input.send_keys("20")
 
     # Нажать на кнопки 7, +, 8 и =
     driver.find_element(By.CSS_SELECTOR, ".btn.btn-outline-primary:nth-child(1)").click()  # Кнопка 7
@@ -31,12 +31,10 @@ def test_calculator(driver):
     driver.find_element(By.CSS_SELECTOR, ".btn.btn-outline-primary:nth-child(2)").click()  # Кнопка 8
     driver.find_element(By.CSS_SELECTOR, ".btn.btn-outline-warning").click()  # Кнопка =
 
-    # Ожидание появления результата "15" в течение 60 секунд
+    # Ожидание появления результата "15" в течение 30 секунд
     try:
         # Ожидаем, пока в элементе с классом .screen не появится текст "15"
-        WebDriverWait(driver, 60).until(
-            EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15")
-        )
+        WebDriverWait(driver, 30).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15"))
 
         # Получаем текст из элемента
         result_text = driver.find_element(By.CSS_SELECTOR, ".screen").text

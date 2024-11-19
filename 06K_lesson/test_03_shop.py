@@ -39,7 +39,7 @@ def test_shop_purchase(driver):
     # Шаг 6: Заполнение формы
     driver.find_element(By.ID, "first-name").send_keys("Иван")
     driver.find_element(By.ID, "last-name").send_keys("Иванов")
-    driver.find_element(By.ID, "postal-code").send_keys("33704180")
+    driver.find_element(By.ID, "postal-code").send_keys("12336987")
     driver.find_element(By.ID, "continue").click()
 
     # Шаг 7:  итоговая стоимость
