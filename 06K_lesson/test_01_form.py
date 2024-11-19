@@ -44,7 +44,8 @@ def test_form_submission(driver):
     driver.find_element(By.CSS_SELECTOR, "input[name='company']").send_keys('SkyPro')
 
     # Нажать на кнопку "Submit"
-    submit_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
+    submit_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
     submit_button.click()
 
     # Ожидание появления всех предупреждений

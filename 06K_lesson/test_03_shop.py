@@ -26,9 +26,7 @@ def test_shop_purchase(driver):
     driver.find_element(By.ID, "login-button").click()
 
     # Шаг 3: Добавление товаров в корзину
-    WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@data-test='add-to-cart-sauce-labs-backpack']"))
-    ).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@data-test='add-to-cart-sauce-labs-backpack']"))).click()
     driver.find_element(By.XPATH, "//button[@data-test='add-to-cart-sauce-labs-bolt-t-shirt']").click()
     driver.find_element(By.XPATH, "//button[@data-test='add-to-cart-sauce-labs-onesie']").click()
 
@@ -40,14 +38,12 @@ def test_shop_purchase(driver):
 
     # Шаг 6: Заполнение формы
     driver.find_element(By.ID, "first-name").send_keys("Иван")
-    driver.find_element(By.ID, "last-name").send_keys("Петров")
-    driver.find_element(By.ID, "postal-code").send_keys("123456")
+    driver.find_element(By.ID, "last-name").send_keys("Иванов")
+    driver.find_element(By.ID, "postal-code").send_keys("33704180")
     driver.find_element(By.ID, "continue").click()
 
-    # Шаг 7: Прочитать итоговую стоимость
-    total_element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "summary_total_label"))
-    )
+    # Шаг 7:  итоговая стоимость
+    total_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "summary_total_label")))
     total_text = total_element.text
     total_value = total_text.split("$")[-1]
 
