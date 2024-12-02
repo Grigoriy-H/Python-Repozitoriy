@@ -1,7 +1,7 @@
 # Позитивные тесты
 
 def test_create_project(api):
-    valid_project_payload = {'title': 'Test Project'}
+    valid_project_payload = {"title": "Test Project"}
     response = api.create_project(valid_project_payload)
     assert response.status_code == 201, f"Expected 201, got {response.status_code}"
 
