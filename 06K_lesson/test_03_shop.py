@@ -50,4 +50,8 @@ def test_shop_purchase(driver):
     # Шаг 8: Проверка итоговой суммы
     assert total_value == "58.29", f"Expected total to be $58.29, but got ${total_value}"
 
+<<<<<<< HEAD
     print("Тест успешен!")
+=======
+    print("Тест успешен!")
+>>>>>>> 7e9a84e97d20a786b435de1df5a4bbe5d1ab1947
